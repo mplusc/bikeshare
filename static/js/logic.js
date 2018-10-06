@@ -104,8 +104,8 @@ map.on('load', function() {
       'circle-stroke-width': .1,
       'circle-opacity': {
         stops: [
-          [14.5, .1],
-          [15.5, .6]
+          [13, .5],
+          [14.5, .7]
         ]
       }
     }
