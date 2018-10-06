@@ -2,7 +2,7 @@ var data = [{
     values: [23204, 13402, 11244, 13989, 13704, 15277, 20652],
     labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
     domain: {
-      x: [0, .48]
+      x: [50, .48]
     },
     name: 'Casual Riders',
     hoverinfo: 'label+percent+name',

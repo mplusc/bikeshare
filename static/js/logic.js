@@ -1,9 +1,9 @@
 mapboxgl.accessToken = API_KEY;
 var map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/mplusc/cjmwhdptz1kve2ro8lo5rfcl1', // stylesheet location
+    style: 'mapbox://styles/mplusc/cjmwxy5yw5kq22rp65yorxg42', // stylesheet location
     center: [-77.029435, 38.955471], // starting position [lng, lat]
-    zoom: 10.7 // starting zoom
+    zoom: 10.6 // starting zoom
 });
 
 map.on('load', function() {
@@ -61,7 +61,7 @@ map.on('load', function() {
       'heatmap-opacity': {
         default: .31,
         stops: [
-          [8, 1],
+          [14, .8],
           [15, .31]
         ]
       },
@@ -73,7 +73,7 @@ map.on('load', function() {
     id: 'Points',
     type: 'circle',
     source: 'CaBi',
-    minzoom: 8,
+    minzoom: 13,
     visibility: 'visible',
     paint: {
       // increase the radius of the circle as the zoom level and dbh value increases
@@ -91,21 +91,21 @@ map.on('load', function() {
         property: 'NUMBER_OF_BIKES_AND_DOCKS',
         type: 'exponential',
         stops: [
-          [0, 'rgba(236,222,239,0)'],
-          [10, 'rgb(236,222,239)'],
-          [20, 'rgb(208,209,230)'],
-          [30, 'rgb(166,189,219)'],
-          [40, 'rgb(103,169,207)'],
-          [50, 'rgb(28,144,153)'],
+          [0, 'rgba(230,230,250,0)'],
+          [10, 'rgb(216,191,216)'],
+          [20, 'rgb(221,160,221)'],
+          [30, 'rgb(147,112,219)'],
+          [40, 'rgb(153,50,204)'],
+          [50, 'rgb(139,0,139)'],
           [60, 'rgb(1,108,89)']
         ]
       },
       'circle-stroke-color': 'white',
-      'circle-stroke-width': .3,
+      'circle-stroke-width': .1,
       'circle-opacity': {
         stops: [
-          [10.5, .3],
-          [14.5, .5]
+          [14.5, .1],
+          [15.5, .6]
         ]
       }
     }
@@ -152,10 +152,10 @@ map.on('click','Heat Map', function(e) {
     .setHTML(e.features[0].properties.NUMBER_OF_BIKES_AND_DOCKS +' Docks at The '+ e.features[0].properties.ADDRESS + ' Capital Bikeshare Station')
     .addTo(map);
 });
-map.on('click','Points', function(e) {
+map.on('click','Points', function(f) {
   new mapboxgl.Popup()
-    .setLngLat(e.features[0].geometry.coordinates)
-    .setHTML(e.features[0].properties.NUMBER_OF_BIKES_AND_DOCKS +' Docks at The '+ e.features[0].properties.ADDRESS + ' Capital Bikeshare Station')
+    .setLngLat(f.features[0].geometry.coordinates)
+    .setHTML(f.features[0].properties.NUMBER_OF_BIKES_AND_DOCKS +' Docks at The '+ f.features[0].properties.ADDRESS + ' Capital Bikeshare Station')
     .addTo(map);
 });
 
