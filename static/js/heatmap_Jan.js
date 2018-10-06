@@ -42,5 +42,10 @@ var data = [
   }
 ];
 
+var layout = {barmode: "overlay", 
+  title: 'January 2018 Average Trip Duration in Minutes', 
+  size: 16
+  
+  };
 
-Plotly.newPlot('myDiv', data);
+Plotly.newPlot('myDiv', data,layout);

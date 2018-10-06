@@ -36,11 +36,13 @@ var data = [
     type: 'heatmap',
     autocolorscale: true,
     name : '(Minutes)',
-    hoverinfo: 'all',
-    title : 'July Average Trip Duration in Minutes',
-    titleside : 'bottom'
+    hoverinfo: 'all'
   }
 ];
+var layout = {barmode: "overlay", 
+  title: 'July 2018 Average Trip Duration in Minutes', 
+  size: 16
+  
+  };
 
-
-Plotly.newPlot('myDiv', data);
+Plotly.newPlot('myDiv', data,layout);
